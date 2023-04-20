@@ -1,7 +1,7 @@
 #include "Queue.cpp"
 
 template <class T>
-void sortQueue(Queue<T> &q);
+void sortQueue(Queue<T> q);
 
 int main(){
     Queue<int> q;
@@ -16,7 +16,7 @@ int main(){
 
 
 template <class T>
-void sortQueue(Queue<T> &q)
+void sortQueue(Queue<T> q)
 {
     int size = q.queueSize();
     for (int i = 0; i < size; i++)
