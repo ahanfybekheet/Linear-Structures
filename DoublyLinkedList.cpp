@@ -88,7 +88,7 @@ void DoublyLinkedList<T>::removeAtTail() {
     }
 
     Node<T> *temp = tail;
-    tail = tail->prev;
+    tail = tail->previous;
     tail->next = nullptr;
     delete temp;
     size--;
@@ -101,7 +101,7 @@ void DoublyLinkedList<T>::removeAt(int index) {
     }
 
     if (index == 0) {
-        removeFromHead();
+        removeAtHead();
     } else if (index == doubleLinkedListSize() - 1) {
         removeAtTail();
     } else {
@@ -109,8 +109,8 @@ void DoublyLinkedList<T>::removeAt(int index) {
         for (int i = 0; i < index; i++) {
             current = current->next;
         }
-        current->prev->next = current->next;
-        current->next->prev = current->prev;
+        current->previous->next = current->next;
+        current->next->previous = current->previous;
         delete current;
         size--;
     }
@@ -125,7 +125,7 @@ T DoublyLinkedList<T>::retrieveAt(int index) {
     for (int i = 0; i < index; i++) {
         current = current->next;
     }
-    return current->data;
+    return current->value;
 }
 
 template<class T>
@@ -184,8 +184,8 @@ void DoublyLinkedList<T>::swap(int firstItemIdx, int secondItemIdx){
 
 template<class T>
 void DoublyLinkedList<T>::reverse(){
-    Node *currentH = head;
-    Node *currentT = tail;
+    Node<T> *currentH = head;
+    Node<T> *currentT = tail;
     for (int i = 0; i < size/2; i++,currentH=currentH->next,currentT=currentT->previous)
     {
         T tmp = currentH->value;
@@ -197,7 +197,7 @@ void DoublyLinkedList<T>::reverse(){
 
 template <class T>
 bool DoublyLinkedList<T>::isEmpty(){
-    return bool(size);
+    return !bool(size);
 }
 
 template<class T>
@@ -207,15 +207,15 @@ int DoublyLinkedList<T>::doubleLinkedListSize(){
 
 template<class T>
 void DoublyLinkedList<T>::clear(){
-    Node *current = head;
+    Node<T> *current = head;
     while(current){
-        Node *tmp = current;
+        Node<T> *tmp = current;
         current = current->next;
         delete tmp;
         size--;
     }
-    head = Null;
-    tail = Null;
+    head = NULL;
+    tail = NULL;
 }
 
 template<class T>

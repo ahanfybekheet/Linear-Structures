@@ -16,8 +16,8 @@ template<class T>
 
 class  DoublyLinkedList{
     private:
-        Node *head;
-        Node *tail;
+        Node<T> *head;
+        Node<T> *tail;
         int size;
     public:
         DoublyLinkedList() : head(NULL), tail(NULL), size(0){};
