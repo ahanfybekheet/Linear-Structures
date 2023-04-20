@@ -11,7 +11,7 @@ SingleLinkedList<T>::SingleLinkedList()
 template <class T>
 void SingleLinkedList<T>::insertAtHead(T element)
 {
-    Node *newNode = new Node;
+    Node<T> *newNode = new Node<T>;
     newNode->value = element;
     newNode->next = NULL;
     if (head == NULL)
@@ -30,7 +30,7 @@ void SingleLinkedList<T>::insertAtHead(T element)
 template <class T>
 void SingleLinkedList<T>::insertAtTail(T element)
 {
-    Node *newNode = new Node;
+    Node<T> *newNode = new Node<T>;
     newNode->value = element;
     newNode->next = NULL;
     if (head == NULL)
@@ -40,7 +40,7 @@ void SingleLinkedList<T>::insertAtTail(T element)
     }
     else
     {
-        Node *temp = head;
+        Node<T> *temp = head;
         while (temp->next != nullptr)
         {
             temp = temp->next;
@@ -64,10 +64,10 @@ void SingleLinkedList<T>::insertAt(T element, int index)
     }
     else
     {
-        Node *newNode = new Node;
+        Node<T> *newNode = new Node<T>;
         newNode->value = element;
         // newNode->next = NULL;
-        Node *temp = head;
+        Node<T> *temp = head;
         for (int i = 0; i < index - 1; i++)
         {
             temp = temp->next;
@@ -93,7 +93,7 @@ void SingleLinkedList<T>::removeAtHead()
     }
     else
     {
-        Node *temp = head;
+        Node<T> *temp = head;
         head = head->next;
         delete temp;
     }
@@ -115,7 +115,7 @@ void SingleLinkedList<T>::removeAtTail()
     }
     else
     {
-        Node *temp = head;
+        Node<T> *temp = head;
         while (temp->next != tail)
         {
             temp = temp->next;
@@ -140,12 +140,12 @@ void SingleLinkedList<T>::removeAt(int index)
     }
     else
     {
-        Node *temp = head;
+        Node<T> *temp = head;
         for (int i = 0; i < index - 1; i++)
         {
             temp = temp->next;
         }
-        Node *temp2 = temp->next;
+        Node<T> *temp2 = temp->next;
         temp->next = temp2->next;
         delete temp2;
         size--;
@@ -155,7 +155,7 @@ void SingleLinkedList<T>::removeAt(int index)
 template <class T>
 T SingleLinkedList<T>::retrieveAt(int index)
 {
-    Node *temp = head;
+    Node<T> *temp = head;
     for (int i = 0; i < index; i++)
     {
         temp = temp->next;
@@ -166,7 +166,7 @@ T SingleLinkedList<T>::retrieveAt(int index)
 template <class T>
 void SingleLinkedList<T>::replaceAt(T newElement, int index)
 {
-    Node *temp = head;
+    Node<T> *temp = head;
     for (int i = 0; i < index; i++)
     {
         temp = temp->next;
@@ -177,7 +177,7 @@ void SingleLinkedList<T>::replaceAt(T newElement, int index)
 template <class T>
 bool SingleLinkedList<T>::isExist(T element)
 {
-    Node *temp = head;
+    Node<T> *temp = head;
     while (temp != NULL)
     {
         if (temp->value == element)
@@ -192,7 +192,7 @@ bool SingleLinkedList<T>::isExist(T element)
 template <class T>
 bool SingleLinkedList<T>::isItemAtEqual(T element, int index)
 {
-    Node *temp = head;
+    Node<T> *temp = head;
     for (int i = 0; i < index; i++)
     {
         temp = temp->next;
@@ -207,12 +207,12 @@ bool SingleLinkedList<T>::isItemAtEqual(T element, int index)
 template <class T>
 void SingleLinkedList<T>::swap(int firstItemIdx, int secondItemIdx)
 {
-    Node *temp = head;
+    Node<T> *temp = head;
     for (int i = 0; i < firstItemIdx; i++)
     {
         temp = temp->next;
     }
-    Node *temp2 = head;
+    Node<T> *temp2 = head;
     for (int i = 0; i < secondItemIdx; i++)
     {
         temp2 = temp2->next;
@@ -241,10 +241,10 @@ int SingleLinkedList<T>::linkedListSize()
 template <class T>
 void SingleLinkedList<T>::clear()
 {
-    Node *temp = head;
+    Node<T> *temp = head;
     while (temp != NULL)
     {
-        Node *temp2 = temp;
+        Node<T> *temp2 = temp;
         temp = temp->next;
         delete temp2;
     }
@@ -256,7 +256,7 @@ void SingleLinkedList<T>::clear()
 template <class T>
 void SingleLinkedList<T>::print()
 {
-    Node *temp = head;
+    Node<T> *temp = head;
     while (temp != NULL)
     {
         cout << temp->value << " ";

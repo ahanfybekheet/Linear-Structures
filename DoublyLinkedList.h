@@ -12,8 +12,8 @@ struct Node
         Node *previous;
         Node(T x) : value(x), next(NULL), previous(NULL){};
     };
-template<class T>
 
+template<class T>
 class  DoublyLinkedList{
     private:
         Node<T> *head;

@@ -2,23 +2,25 @@
 
 using namespace std;
 
+template<class T>
+struct Node
+{
+    T value;
+    Node<T> *next;
+
+    Node()
+    {
+        value = 0;
+        next = NULL;
+    }
+};
+
 template <class T>
 class SingleLinkedList
 {
 private:
-    struct Node
-    {
-        T value;
-        Node *next;
-
-        Node()
-        {
-            value = 0;
-            next = NULL;
-        }
-    };
-    Node *head;
-    Node *tail;
+    Node<T> *head;
+    Node<T> *tail;
     int size;
 public:
     SingleLinkedList();
