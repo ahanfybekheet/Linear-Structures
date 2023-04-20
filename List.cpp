@@ -2,44 +2,38 @@
 
 // array based list
 
+
 template <class T>
-class List
+List<T>::List(int size) : maxSize(size), listSize(0), curr(0), listArray(new T[size]){};
+
+template <class T>
+void List<T>::insert(T it)
 {
-private:
-    int maxSize;
-    int listSize;
-    int curr;
-    T *listArray;
-public:
-    List(int size)
+    (listSize < maxSize);
+    listArray[listSize++] = it;
+}
+template <class T>
+void List<T>::insertAt(T it, int index)
+{
+    (listSize < maxSize);
+    (index >= 0 && index <= listSize);
+    for (int i = listSize; i > index; i--)
     {
-        maxSize = size;
-        listSize = curr = 0;
-        listArray = new T[maxSize];
+        listArray[i] = listArray[i-1];
     }
-    
-    void insert(T it)
-    {
-        (listSize < maxSize);
-        listArray[listSize++] = it;
-    }
-    void insertAt(T it, int index)
-    {
-        (listSize < maxSize);
-        (index >= 0 && index <= listSize);
-        for (int i = listSize; i > index; i--)
-        {
-            listArray[i] = listArray[i-1];
-        }
-        listArray[index] = it;
-        listSize++;
-    }
-    T retrieveAt(int index)
-    {
-        (index >= 0 && index < listSize);
-        return listArray[index];
-    }
-    void removeAt(int index)
+    listArray[index] = it;
+    listSize++;
+}
+
+template <class T>
+T List<T>::retrieveAt(int index)
+{
+    (index >= 0 && index < listSize);
+    return listArray[index];
+}
+
+template <class T>
+void List<T>::removeAt(int index)
     {
         (index >= 0 && index < listSize);
         for (int i = index; i < listSize-1; i++)
@@ -48,46 +42,59 @@ public:
         }
         listSize--;
     }
-    void replaceAt(T it, int index)
-    {
-        (index >= 0 && index < listSize);
-        listArray[index] = it;
-    }
-    bool isItemAtEqual(T it, int index)
-    {
-        (index >= 0 && index < listSize);
-        return (listArray[index] == it);
-    }
-    bool isEmpty()
-    {
-        return (listSize == 0);
-    }
-    bool isFull()
-    {
-        return (listSize == maxSize);
-    }
-    int ListSize()
-    {
-        return listSize;
-    }
-    int maxListSize()
-    {
-        return maxSize;
-    }
-    void clear()
-    {
-        delete [] listArray;
-        listSize = curr = 0;
-        listArray = new T[maxSize];
-    }
-    void print()
-    {
-        for (int i = 0; i < listSize; i++)
-        {
-            cout << listArray[i] << " ";
-        }
-        cout << endl;
-    }
 
+template <class T>
+void List<T>::replaceAt(T it, int index)
+{
+    (index >= 0 && index < listSize);
+    listArray[index] = it;
+}
 
-};
+template <class T>
+bool List<T>::isItemAtEqual(T it, int index)
+{
+    (index >= 0 && index < listSize);
+    return (listArray[index] == it);
+}
+
+template <class T>
+bool List<T>::isEmpty()
+{
+    return (listSize == 0);
+}
+
+template <class T>
+bool List<T>::isFull()
+{
+    return (listSize == maxSize);
+}
+
+template <class T>
+int List<T>::ListSize()
+{
+    return listSize;
+}
+
+template <class T>
+int List<T>::maxListSize()
+{
+    return maxSize;
+}
+
+template <class T>
+void List<T>::clear()
+{
+    delete [] listArray;
+    listSize = curr = 0;
+    listArray = new T[maxSize];
+}
+
+template <class T>
+void List<T>::print()
+{
+    for (int i = 0; i < listSize; i++)
+    {
+        cout << listArray[i] << " ";
+    }
+    cout << endl;
+}

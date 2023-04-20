@@ -19,6 +19,8 @@
         "system_error": "cpp",
         "stdexcept": "cpp",
         "iostream": "cpp",
-        "xlocinfo": "cpp"
+        "xlocinfo": "cpp",
+        "initializer_list": "cpp",
+        "type_traits": "cpp"
     }
 }
