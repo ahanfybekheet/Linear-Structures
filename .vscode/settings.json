@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "*.blade.php": "blade",
+        "*.php": "php",
+        "*.html": "html",
+        "xstring": "cpp",
+        "xutility": "cpp",
+        "exception": "cpp",
+        "ios": "cpp",
+        "istream": "cpp",
+        "iterator": "cpp",
+        "memory": "cpp",
+        "ostream": "cpp",
+        "streambuf": "cpp",
+        "tuple": "cpp",
+        "utility": "cpp",
+        "xiosbase": "cpp",
+        "atomic": "cpp",
+        "system_error": "cpp",
+        "stdexcept": "cpp",
+        "iostream": "cpp",
+        "xlocinfo": "cpp"
+    }
+}
