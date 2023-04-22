@@ -11,6 +11,15 @@ void generateBinaryNumbers(int n) {
         q.enqueue(binary + "0");
         q.enqueue(binary + "1");
     }
+    
+}
+
+
+int main() {
+    
+    generateBinaryNumbers(3);
+    cout << endl;
+    return 0;
 }
 
 
@@ -29,10 +38,4 @@ void generateBinaryNumbers(int n) {
 //     }
 // }
 
-int main() {
-    
-    generateBinaryNumbers(3);
-    cout << endl;
-    return 0;
-}
 

@@ -5,12 +5,12 @@ using namespace std;
 template<class T>
 struct Node
 {
-    T value;
+    T value ;
     Node<T> *next;
 
     Node()
     {
-        value = 0;
+        //value = 0;
         next = NULL;
     }
 };
