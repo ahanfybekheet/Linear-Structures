@@ -1,60 +1,72 @@
 #include "List.h"
 
-// array based list
-
+// array-based list
 
 template <class T>
-List<T>::List(int size) : maxSize(size), listSize(0), curr(0), listArray(new T[size]){};
+List<T>::List(int size) : maxSize(size), listSize(0), curr(0), listArray(new T[size]) {}
 
 template <class T>
 void List<T>::insert(T it)
 {
-    (listSize < maxSize);
-    listArray[listSize++] = it;
+    if (listSize < maxSize)
+    {
+        listArray[listSize++] = it;
+    }
 }
+
 template <class T>
 void List<T>::insertAt(T it, int index)
 {
-    (listSize < maxSize);
-    (index >= 0 && index <= listSize);
-    for (int i = listSize; i > index; i--)
+    if (listSize < maxSize && index >= 0 && index <= listSize)
     {
-        listArray[i] = listArray[i-1];
+        for (int i = listSize; i > index; i--)
+        {
+            listArray[i] = listArray[i - 1];
+        }
+        listArray[index] = it;
+        listSize++;
     }
-    listArray[index] = it;
-    listSize++;
 }
 
 template <class T>
 T List<T>::retrieveAt(int index)
 {
-    (index >= 0 && index < listSize);
-    return listArray[index];
+    if (index >= 0 && index < listSize)
+    {
+        return listArray[index];
+    }
+    // Handle error case (e.g., throw an exception, return a default value, etc.)
 }
 
 template <class T>
 void List<T>::removeAt(int index)
+{
+    if (index >= 0 && index < listSize)
     {
-        (index >= 0 && index < listSize);
-        for (int i = index; i < listSize-1; i++)
+        for (int i = index; i < listSize - 1; i++)
         {
-            listArray[i] = listArray[i+1];
+            listArray[i] = listArray[i + 1];
         }
         listSize--;
     }
+}
 
 template <class T>
 void List<T>::replaceAt(T it, int index)
 {
-    (index >= 0 && index < listSize);
-    listArray[index] = it;
+    if (index >= 0 && index < listSize)
+    {
+        listArray[index] = it;
+    }
 }
 
 template <class T>
 bool List<T>::isItemAtEqual(T it, int index)
 {
-    (index >= 0 && index < listSize);
-    return (listArray[index] == it);
+    if (index >= 0 && index < listSize)
+    {
+        return (listArray[index] == it);
+    }
 }
 
 template <class T>
@@ -84,7 +96,7 @@ int List<T>::maxListSize()
 template <class T>
 void List<T>::clear()
 {
-    delete [] listArray;
+    delete[] listArray;
     listSize = curr = 0;
     listArray = new T[maxSize];
 }
